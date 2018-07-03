@@ -2,9 +2,9 @@ package src
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/spf13/viper"
 	"github.com/moocss/apiserver/src/router"
 	"github.com/moocss/apiserver/src/router/middleware"
+	"github.com/spf13/viper"
 )
 
 // New returns a app instance

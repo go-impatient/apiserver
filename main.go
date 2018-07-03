@@ -1,9 +1,16 @@
 package main
 
 import (
-	"encoding/json"
 	"context"
+	"encoding/json"
 	"errors"
+	"fmt"
+	logger "github.com/lexkong/log"
+	"github.com/moocss/apiserver/src"
+	"github.com/moocss/apiserver/src/config"
+	v "github.com/moocss/apiserver/src/pkg/version"
+	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"os"
@@ -11,16 +18,10 @@ import (
 	"os/signal"
 	"runtime"
 	"time"
-	"github.com/spf13/viper"
-	"github.com/spf13/pflag"
-	"github.com/moocss/apiserver/src"
-	v "github.com/moocss/apiserver/src/pkg/version"
-	"github.com/moocss/apiserver/src/config"
-	"fmt"
 )
 
 var (
-	cfg = pflag.StringP("config", "c", "", "apiserver config file path.")
+	cfg     = pflag.StringP("config", "c", "", "apiserver config file path.")
 	version = pflag.BoolP("version", "v", false, "show version info.")
 )
 
@@ -54,7 +55,7 @@ func main() {
 	go func() {
 		// service connections
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("listen: %s\n", err)
+			logger.Fatal("listen: %s\n", err)
 		}
 	}()
 
@@ -62,9 +63,9 @@ func main() {
 	go func() {
 		// ping server
 		if err := pingServer(); err != nil {
-			log.Fatal("The router has no response, or it might took too long to start up. ", err)
+			logger.Fatal("The router has no response, or it might took too long to start up. ", err)
 		}
-		log.Print("The router has been deployed successfully.")
+		logger.Info("The router has been deployed successfully.")
 	}()
 
 	// 打开浏览器
@@ -73,7 +74,7 @@ func main() {
 		startBrowser(viper.GetString("url"))
 	}()
 
-	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("addr"))
+	logger.Infof("Start to listening the incoming requests on http address: %s", viper.GetString("addr"))
 
 	// Wait for interrupt signal to gracefully shutdown the server with
 	// a timeout of 5 seconds.
@@ -100,7 +101,7 @@ func pingServer() error {
 		}
 
 		// Sleep for a second to continue the next ping.
-		log.Print("Waiting for the router, retry in 1 second.")
+		logger.Info("Waiting for the router, retry in 1 second.")
 		time.Sleep(time.Second)
 	}
 	return errors.New("Cannot connect to the router.")

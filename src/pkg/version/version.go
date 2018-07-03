@@ -32,4 +32,3 @@ func Get() Info {
 		Platform:     fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH),
 	}
 }
-
