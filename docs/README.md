@@ -116,3 +116,8 @@ apiserver
     ├── gopkg.in
     └── vendor.json
 ```
+
+## 数据库操作
+ - https://github.com/didi/gendry/
+ - https://github.com/nienie/manyfaced/blob/master/source/db_configuration_source.go
+ - https://github.com/LeungGeorge/go-middleware/blob/master/mysql/doraemondb.go
