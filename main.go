@@ -5,12 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	logger "github.com/lexkong/log"
-	"github.com/moocss/apiserver/src"
-	"github.com/moocss/apiserver/src/config"
-	v "github.com/moocss/apiserver/src/pkg/version"
-	"github.com/spf13/pflag"
-	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"os"
@@ -18,17 +12,37 @@ import (
 	"os/signal"
 	"runtime"
 	"time"
+	"github.com/spf13/pflag"
+	logger "github.com/lexkong/log"
+	"github.com/moocss/apiserver/src"
+	"github.com/moocss/apiserver/src/config"
+	v "github.com/moocss/apiserver/src/pkg/version"
 )
 
-var (
-	cfg     = pflag.StringP("config", "c", "", "apiserver config file path.")
-	version = pflag.BoolP("version", "v", false, "show version info.")
-)
+
 
 func main() {
+	opts := config.ConfYaml{}
+
+	var (
+		showVersion bool
+		configFile string
+	)
+
+	pflag.StringVar(&configFile, "c" , "", "Configuration file path.")
+	pflag.StringVar(&configFile, "config", "", "Configuration file path.")
+	pflag.BoolVar(&showVersion, "v", false, "Print version information.")
+	pflag.BoolVar(&showVersion, "version", false, "Print version information.")
+	pflag.StringVar(&opts.Core.Address, "A", "", "address to bind")
+	pflag.StringVar(&opts.Core.Address, "address", "", "address to bind")
+	pflag.StringVar(&opts.Core.Port, "p", "", "port number for gorush")
+	pflag.StringVar(&opts.Core.Port, "port", "", "port number for gorush")
+
 	pflag.Parse()
 
-	if *version {
+	v.SetVersion(src.Version)
+
+	if showVersion {
 		v := v.Get()
 		marshalled, err := json.MarshalIndent(&v, "", "  ")
 		if err != nil {
@@ -40,14 +54,25 @@ func main() {
 		return
 	}
 
-	// init config
-	if err := config.Init(*cfg); err != nil {
-		panic(err)
+	var err error
+	// set default parameters.
+	src.Conf, err = config.Init(configFile)
+	if err != nil {
+		fmt.Printf("Load yaml config file error: '%v'", err)
+		return
+	}
+
+	// overwrite server port and address
+	if opts.Core.Port != "" {
+		src.Conf.Core.Port = opts.Core.Port
+	}
+	if opts.Core.Address != "" {
+		src.Conf.Core.Address = opts.Core.Address
 	}
 
 	g := src.New()
 	srv := &http.Server{
-		Addr:    viper.GetString("addr"),
+		Addr: src.Conf.Core.Address + ":" + src.Conf.Core.Port,
 		Handler: g,
 	}
 
@@ -71,10 +96,10 @@ func main() {
 	// 打开浏览器
 	go func() {
 		time.Sleep(time.Second * 6)
-		startBrowser(viper.GetString("url"))
+		startBrowser("http://localhost:" + src.Conf.Core.Port)
 	}()
 
-	logger.Infof("Start to listening the incoming requests on http address: %s", viper.GetString("addr"))
+	logger.Infof("Start to listening the incoming requests on http address: %s", src.Conf.Core.Port)
 
 	// Wait for interrupt signal to gracefully shutdown the server with
 	// a timeout of 5 seconds.
@@ -93,9 +118,11 @@ func main() {
 
 // pingServer pings the http server to make sure the router is working.
 func pingServer() error {
-	for i := 0; i < viper.GetInt("max_ping_count"); i++ {
+	maxPingConf := src.Conf.Core.MaxPingCount
+	for i := 0; i < maxPingConf; i++ {
 		// Ping the server by sending a GET request to `/health`.
-		resp, err := http.Get(viper.GetString("url") + "/sd/health")
+		resp, err := http.Get("http://localhost:" + src.Conf.Core.Port + "/sd/health")
+		// defer resp.Body.Close();
 		if err == nil && resp.StatusCode == 200 {
 			return nil
 		}

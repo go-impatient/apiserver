@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/moocss/apiserver/src/router"
 	"github.com/moocss/apiserver/src/router/middleware"
-	"github.com/spf13/viper"
 )
 
 // New returns a app instance
@@ -12,7 +11,7 @@ func New() *gin.Engine {
 	// init db
 
 	// Set gin mode.
-	gin.SetMode(viper.GetString("runmode"))
+	gin.SetMode(Conf.Core.Mode)
 
 	// Create the Gin engine.
 	g := gin.New()
@@ -22,6 +21,7 @@ func New() *gin.Engine {
 		// Cores
 		g,
 		// Middlwares
+		middleware.VersionMiddleware(),
 		// middleware.Logging(),
 		middleware.RequestId(),
 	)

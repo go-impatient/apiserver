@@ -63,7 +63,7 @@ apiserver
 │   │   ├── config.go                # 用来处理配置
 │   │   ├── config.yaml              # 配置文件
 │   │   ├── server.crt               # TLS配置文件
-│   │   └── server.key
+│   │   └── server.key  
 │   ├── db.sql                       # 在部署新环境时，可以登录MySQL客户端，执行source db.sql创建数据库和表
 │   ├── api                          # 类似MVC架构中的C，用来读取输入，并将处理流程转发给实际的处理函数，最后返回结果
 │   │   ├── handler.go

@@ -2,21 +2,39 @@ package router
 
 import (
 	"net/http"
-
+	"github.com/moocss/apiserver/src/pkg/version"
 	"github.com/moocss/apiserver/src/api/sd"
 	"github.com/moocss/apiserver/src/router/middleware"
 
 	"github.com/gin-gonic/gin"
 )
 
+func rootHandler(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"text": "Welcome to api server.",
+	})
+}
+
+func versionHandler(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"source":  "https://github.com/go-impatient/apiserver",
+		"version": version.GetVersion(),
+	})
+}
+
 // Load loads the middlewares, routes, handlers.
 func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	// Middlewares.
+	g.Use(gin.Logger())
 	g.Use(gin.Recovery())
 	g.Use(middleware.NoCache)
 	g.Use(middleware.Options)
 	g.Use(middleware.Secure)
 	g.Use(mw...)
+
+	g.GET("/version", versionHandler)
+	g.GET("/", rootHandler)
+
 	// 404 Handler.
 	g.NoRoute(func(c *gin.Context) {
 		c.String(http.StatusNotFound, "不存在的接口地址.")
