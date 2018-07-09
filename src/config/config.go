@@ -11,30 +11,32 @@ import (
 
 var defaultConf = []byte(`
 core:
-  enabled: true                   # enabale httpd server
-  mode: "debug"                   # 开发模式, debug, release, test
-  name: "apiserver"               # API Server的名字
-  address: ""                     # ip address to bind (default: any)
-  port: "9090"                    # HTTP 绑定端口.
-  max_ping_count: 2               # pingServer函数try的次数
+  enabled: true
+  mode: "debug"
+  name: "apiserver"
+  address: ""
+  port: "9090"
+  max_ping_count: 2
   jwt_secret: "Rtg8BPKNEf2mB4mgvKONGPZZQSaJWNLijxR42qRgq0iBb5"
   tls:
     port: "9098"
     cert_path: "src/config/server.crt"
     key_path: "src/config/server.key"
   auto_tls:
-    enabled: false                # Automatically install TLS certificates from Let's Encrypt.
-    folder: ".cache"              # folder for storing TLS certificates
-    host: ""                      # which domains the Let's Encrypt will attempt
+    enabled: false
+    folder: ".cache"
+    host: ""
+
 log:
-  writers: "file,stdout"              # 输出位置，有两个可选项 —— file 和 stdout。选择 file 会将日志记录到 logger_file 指定的日志文件中，选择 stdout 会将日志输出到标准输出，当然也可以两者同时选择
-  logger_level: "DEBUG"               # 日志级别，DEBUG、INFO、WARN、ERROR、FATAL
-  logger_file: "log/apiserver.log"    # 日志文件
-  log_format_text: false              # 日志的输出格式，JSON 或者 plaintext，true 会输出成 JSON 格式，false 会输出成非 JSON 格式
-  rollingPolicy: "size"              # rotate 依据，可选的有 daily 和 size。如果选 daily 则根据天进行转存，如果是 size 则根据大小进行转存
-  log_rotate_date: 1                  # rotate 转存时间，配 合rollingPolicy: daily 使用
-  log_rotate_size: 1                  # rotate 转存大小，配合 rollingPolicy: size 使用
-  log_backup_count: 7                 # 当日志文件达到转存标准时，log 系统会将该日志文件进行压缩备份，这里指定了备份文件的最大个数
+  writers: "file,stdout"
+  logger_level: "DEBUG"
+  logger_file: "log/apiserver.log"
+  log_format_text: false
+  rollingPolicy: "size"
+  log_rotate_date: 1
+  log_rotate_size: 1
+  log_backup_count: 7
+
 db:
   name: "db_apiserver"
   addr: "127.0.0.1:3306"
@@ -137,12 +139,6 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	viper.SetEnvKeyReplacer(replacer)
 
 	if c.Name != "" {
-		//content, err := ioutil.ReadFile(c.Name)
-		//if err != nil {
-		//	return conf, err
-		//}
-		//viper.ReadConfig(bytes.NewBuffer(content))
-
 		// 如果指定了配置文件，则解析指定的配置文件
 		viper.SetConfigFile(c.Name)
 	} else {
@@ -179,7 +175,7 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	confYaml.Log.LoggerLevel = viper.GetString("log.logger_level")
 	confYaml.Log.LoggerFile = viper.GetString("log.logger_file")
 	confYaml.Log.LogFormatText = viper.GetBool("log.log_format_text")
-	confYaml.Log.RollingPolicy = viper.GetString("log.rolling_policy")
+	confYaml.Log.RollingPolicy = viper.GetString("log.rollingPolicy")
 	confYaml.Log.LogRotateDate = viper.GetInt("log.log_rotate_date")
 	confYaml.Log.LogRotateSize = viper.GetInt("log.log_rotate_size")
 	confYaml.Log.LogBackupCount = viper.GetInt("log.log_backup_count")
