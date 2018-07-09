@@ -13,4 +13,3 @@ func VersionMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
-

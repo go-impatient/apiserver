@@ -1,16 +1,15 @@
 core:
+  enabled: true                   # enabale httpd server
   mode: "debug"                   # 开发模式, debug, release, test
   name: "apiserver"               # API Server的名字
   address: ""                     # ip address to bind (default: any)
-  port: "8088"                    # HTTP 绑定端口.
+  port: "9090"                    # HTTP 绑定端口.
   max_ping_count: 2               # pingServer函数try的次数
   jwt_secret: "Rtg8BPKNEf2mB4mgvKONGPZZQSaJWNLijxR42qRgq0iBb5"
   tls:
-    port: "8089"
-    cert_path: "conf/server.crt"
-    key_path: "conf/server.key"
-    cert_base64: ""
-    key_base64: ""
+    port: "9098"
+    cert_path: "src/config/server.crt"
+    key_path: "src/config/server.key"
   auto_tls:
     enabled: false                # Automatically install TLS certificates from Let's Encrypt.
     folder: ".cache"              # folder for storing TLS certificates

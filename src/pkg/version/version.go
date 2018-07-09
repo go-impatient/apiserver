@@ -9,7 +9,7 @@ var version string
 
 // Info contains versioning information.
 type Info struct {
-	Version      string `json:"Version"`
+	Version      string `json:"version"`
 	GitTag       string `json:"gitTag"`
 	GitCommit    string `json:"gitCommit"`
 	GitTreeState string `json:"gitTreeState"`
@@ -36,7 +36,7 @@ func GetVersion() string {
 
 func Get() Info {
 	return Info{
-		Version:			version,
+		Version:      version,
 		GitTag:       gitTag,
 		GitCommit:    gitCommit,
 		GitTreeState: gitTreeState,

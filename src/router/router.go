@@ -1,10 +1,10 @@
 package router
 
 import (
-	"net/http"
-	"github.com/moocss/apiserver/src/pkg/version"
 	"github.com/moocss/apiserver/src/api/sd"
+	"github.com/moocss/apiserver/src/pkg/version"
 	"github.com/moocss/apiserver/src/router/middleware"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )

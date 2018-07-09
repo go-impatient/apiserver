@@ -1,28 +1,27 @@
 package config
 
 import (
+	"bytes"
+	"fmt"
 	"github.com/fsnotify/fsnotify"
 	"github.com/lexkong/log"
 	"github.com/spf13/viper"
-	"fmt"
-	"bytes"
 	"strings"
 )
 
 var defaultConf = []byte(`
 core:
+  enabled: true                   # enabale httpd server
   mode: "debug"                   # 开发模式, debug, release, test
   name: "apiserver"               # API Server的名字
   address: ""                     # ip address to bind (default: any)
-  port: "8088"                    # HTTP 绑定端口.
+  port: "9090"                    # HTTP 绑定端口.
   max_ping_count: 2               # pingServer函数try的次数
   jwt_secret: "Rtg8BPKNEf2mB4mgvKONGPZZQSaJWNLijxR42qRgq0iBb5"
   tls:
-    port: "8089"
-    cert_path: "conf/server.crt"
-    key_path: "conf/server.key"
-    cert_base64: ""
-    key_base64: ""
+    port: "9098"
+    cert_path: "src/config/server.crt"
+    key_path: "src/config/server.key"
   auto_tls:
     enabled: false                # Automatically install TLS certificates from Let's Encrypt.
     folder: ".cache"              # folder for storing TLS certificates
@@ -32,7 +31,7 @@ log:
   logger_level: "DEBUG"               # 日志级别，DEBUG、INFO、WARN、ERROR、FATAL
   logger_file: "log/apiserver.log"    # 日志文件
   log_format_text: false              # 日志的输出格式，JSON 或者 plaintext，true 会输出成 JSON 格式，false 会输出成非 JSON 格式
-  rollingPolicy: "size"               # rotate 依据，可选的有 daily 和 size。如果选 daily 则根据天进行转存，如果是 size 则根据大小进行转存
+  rollingPolicy: "size"              # rotate 依据，可选的有 daily 和 size。如果选 daily 则根据天进行转存，如果是 size 则根据大小进行转存
   log_rotate_date: 1                  # rotate 转存时间，配 合rollingPolicy: daily 使用
   log_rotate_size: 1                  # rotate 转存大小，配合 rollingPolicy: size 使用
   log_backup_count: 7                 # 当日志文件达到转存标准时，log 系统会将该日志文件进行压缩备份，这里指定了备份文件的最大个数
@@ -48,59 +47,57 @@ type Config struct {
 }
 
 type ConfYaml struct {
-	Core 		SectionCore			`yaml:"core"`
-	Log 		SectionLog			`yaml:"log"`
-	Db 			SectionDb				`yaml:"db"`
+	Core SectionCore `yaml:"core"`
+	Log  SectionLog  `yaml:"log"`
+	Db   SectionDb   `yaml:"db"`
 }
 
 // SectionCore is sub section of config.
 type SectionCore struct {
-	Mode            string					`yaml:"mode"`
-	Name						string				 	`yaml:"name"`
-	Address         string         	`yaml:"address"`
-	Port            string         	`yaml:"port"`
-	MaxPingCount		int							`yaml:"max_ping_count"`
-	JwtSecret				string					`yaml:"jwt_secret"`
-	TLS							SectionTLS			`yaml:"tls"`
-	AutoTLS					SectionAutoTLS	`yaml:"auto_tls"`
+	Enabled			 bool						`yaml:"enabled"`
+	Mode         string         `yaml:"mode"`
+	Name         string         `yaml:"name"`
+	Address      string         `yaml:"address"`
+	Port         string         `yaml:"port"`
+	MaxPingCount int            `yaml:"max_ping_count"`
+	JwtSecret    string         `yaml:"jwt_secret"`
+	TLS          SectionTLS     `yaml:"tls"`
+	AutoTLS      SectionAutoTLS `yaml:"auto_tls"`
 }
 
 // SectionTLS support tls
 type SectionTLS struct {
-	Port						string					`yaml:"port"`
-	CertPath        string        	`yaml:"cert_path"`
-	KeyPath         string         	`yaml:"key_path"`
-	CertBase64      string         	`yaml:"cert_base64"`
-	KeyBase64       string         	`yaml:"key_base64"`
+	Port       string `yaml:"port"`
+	CertPath   string `yaml:"cert_path"`
+	KeyPath    string `yaml:"key_path"`
 }
 
 // SectionAutoTLS support Let's Encrypt setting.
 type SectionAutoTLS struct {
-	Enabled 				bool   					`yaml:"enabled"`
-	Folder  				string 					`yaml:"folder"`
-	Host    				string 					`yaml:"host"`
+	Enabled bool   `yaml:"enabled"`
+	Folder  string `yaml:"folder"`
+	Host    string `yaml:"host"`
 }
 
 // SectionLog is sub section of config.
 type SectionLog struct {
-  Writers 				string 					`yaml:"writers"`
-  LoggerLevel 		string 					`yaml:"logger_level"`
-  LoggerFile 			string 					`yaml:"logger_file"`
-  LogFormatText 	bool 						`yaml:"log_format_text"`
-  RollingPolicy 	string 					`yaml:"rollingPolicy"`
-  LogRotateDate 	int 						`yaml:"log_rotate_date"`
-  LogRotateSize 	int 						`yaml:"log_rotate_size"`
-  LogBackupCount 	int 						`yaml:"log_backup_count"`
+	Writers        string `yaml:"writers"`
+	LoggerLevel    string `yaml:"logger_level"`
+	LoggerFile     string `yaml:"logger_file"`
+	LogFormatText  bool   `yaml:"log_format_text"`
+	RollingPolicy  string `yaml:"rollingPolicy"`
+	LogRotateDate  int    `yaml:"log_rotate_date"`
+	LogRotateSize  int    `yaml:"log_rotate_size"`
+	LogBackupCount int    `yaml:"log_backup_count"`
 }
 
 // SectionDb is sub section of config.
 type SectionDb struct {
-	Name 						string 					`yaml:"name"`
-  Addr 						string 					`yaml:"addr"`
-  Username 				string 					`yaml:"username"`
-  Password 				string 					`yaml:"password"`
+	Name     string `yaml:"name"`
+	Addr     string `yaml:"addr"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
 }
-
 
 func Init(cfg string) (ConfYaml, error) {
 	var confYaml ConfYaml
@@ -163,6 +160,7 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	}
 
 	// Core
+	confYaml.Core.Enabled = viper.GetBool("core.enabled")
 	confYaml.Core.Mode = viper.GetString("core.mode")
 	confYaml.Core.Name = viper.GetString("core.name")
 	confYaml.Core.Address = viper.GetString("core.")
@@ -172,14 +170,12 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	confYaml.Core.TLS.Port = viper.GetString("core.tls.port")
 	confYaml.Core.TLS.CertPath = viper.GetString("core.tls.cert_path")
 	confYaml.Core.TLS.KeyPath = viper.GetString("core.tls.key_path")
-	confYaml.Core.TLS.CertBase64 = viper.GetString("core.tls.cert_base64")
-	confYaml.Core.TLS.KeyBase64 = viper.GetString("core.tls.key_base64")
 	confYaml.Core.AutoTLS.Enabled = viper.GetBool("core.auto_tls.enabled")
 	confYaml.Core.AutoTLS.Folder = viper.GetString("core.auto_tls.folder")
-	confYaml.Core.AutoTLS.Host  = viper.GetString("core.auto_tls.host")
+	confYaml.Core.AutoTLS.Host = viper.GetString("core.auto_tls.host")
 
 	// Log
-	confYaml.Log.Writers = viper.GetString("log.writers")	
+	confYaml.Log.Writers = viper.GetString("log.writers")
 	confYaml.Log.LoggerLevel = viper.GetString("log.logger_level")
 	confYaml.Log.LoggerFile = viper.GetString("log.logger_file")
 	confYaml.Log.LogFormatText = viper.GetBool("log.log_format_text")
@@ -192,7 +188,7 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	confYaml.Db.Name = viper.GetString("db.name")
 	confYaml.Db.Addr = viper.GetString("db.addr")
 	confYaml.Db.Username = viper.GetString("db.username")
-	confYaml.Db.Password  = viper.GetString("db.password")
+	confYaml.Db.Password = viper.GetString("db.password")
 
 	return confYaml, nil
 }
@@ -200,13 +196,13 @@ func (c *Config) initConfig() (ConfYaml, error) {
 // 初始化日志包
 func (c *Config) initLog(conf *ConfYaml) {
 	passLagerCfg := log.PassLagerCfg{
-		Writers: conf.Log.Writers,
-		LoggerLevel: conf.Log.LoggerLevel,
-		LoggerFile: conf.Log.LoggerFile,
-		LogFormatText: conf.Log.LogFormatText,
-		RollingPolicy: conf.Log.RollingPolicy,
-		LogRotateDate: conf.Log.LogRotateDate,
-		LogRotateSize: conf.Log.LogRotateSize,
+		Writers:        conf.Log.Writers,
+		LoggerLevel:    conf.Log.LoggerLevel,
+		LoggerFile:     conf.Log.LoggerFile,
+		LogFormatText:  conf.Log.LogFormatText,
+		RollingPolicy:  conf.Log.RollingPolicy,
+		LogRotateDate:  conf.Log.LogRotateDate,
+		LogRotateSize:  conf.Log.LogRotateSize,
 		LogBackupCount: conf.Log.LogBackupCount,
 	}
 	log.InitWithConfig(&passLagerCfg)
