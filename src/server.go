@@ -5,16 +5,20 @@ import (
 	"github.com/moocss/apiserver/src/router"
 	"github.com/moocss/apiserver/src/router/middleware"
 	"golang.org/x/crypto/acme/autocert"
-	logger "github.com/lexkong/log"
+	"github.com/lexkong/log"
 	"net/http"
 	"crypto/tls"
 	"time"
 	"errors"
+	"github.com/seccom/kpass/src/logger"
+	"github.com/moocss/apiserver/src/service"
 )
 
 // New returns a app instance
 func New() *gin.Engine {
 	// init db
+	Storage.Init(Conf)
+	defer service.DB.Close()
 
 	// Set gin mode.
 	gin.SetMode(Conf.Core.Mode)
@@ -50,7 +54,7 @@ func autoTLSServer() *http.Server {
 // RunHTTPServer provide run http or https protocol.
 func RunHTTPServer() (err error) {
 	if !Conf.Core.Enabled {
-		logger.Debug("httpd server is disabled.")
+		log.Debug("httpd server is disabled.")
 		return nil
 	}
 

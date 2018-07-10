@@ -1,18 +1,5 @@
-{"level":"INFO","timestamp":"2018-07-09 22:15:25.010","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:15:26.017","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:18:58.297","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:18:59.304","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"ERROR","timestamp":"2018-07-09 22:19:00.308","file":"apiserver/main.go:94","msg":"接口服务出错了：","data":{"error":"listen tcp :9098: bind: address already in use"}}
-{"level":"INFO","timestamp":"2018-07-09 22:19:00.308","file":"apiserver/main.go:97","msg":"Start to listening the incoming requests on http address: 9090"}
-{"level":"INFO","timestamp":"2018-07-09 22:19:12.027","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:19:13.034","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:20:12.113","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:20:13.120","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:24:23.573","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:24:24.579","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:27:25.394","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:27:26.398","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:28:04.962","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:28:05.969","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:52:05.463","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
-{"level":"INFO","timestamp":"2018-07-09 22:52:06.470","file":"server.go:80","msg":"Waiting for the router, retry in 1 second."}
+{"level":"INFO","timestamp":"2018-07-10 23:49:32.298","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"ERROR","timestamp":"2018-07-10 23:50:23.628","file":"service/db.go:34","msg":"Database connection failed.","data":{"error":"dial tcp 127.0.0.1:3306: connect: connection refused"}}
+{"level":"INFO","timestamp":"2018-07-10 23:50:23.631","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"ERROR","timestamp":"2018-07-10 23:50:25.651","file":"apiserver/main.go:94","msg":"接口服务出错了：","data":{"error":"listen tcp :9098: bind: address already in use"}}
+{"level":"INFO","timestamp":"2018-07-10 23:50:25.652","file":"apiserver/main.go:97","msg":"Start to listening the incoming requests on http address: 9090"}

@@ -41,7 +41,14 @@ db:
   name: "db_apiserver"
   addr: "127.0.0.1:3306"
   username: "root"
-  password: "root"
+  password: "123456"
+
+
+docker_db:
+  name: "db_apiserver"
+  addr: "127.0.0.1:3306"
+  username: "root"
+  password: "123456"
 `)
 
 type Config struct {
@@ -52,6 +59,7 @@ type ConfYaml struct {
 	Core SectionCore `yaml:"core"`
 	Log  SectionLog  `yaml:"log"`
 	Db   SectionDb   `yaml:"db"`
+	DockerDb SectionDockerDb  `yaml:"db"`
 }
 
 // SectionCore is sub section of config.
@@ -95,6 +103,14 @@ type SectionLog struct {
 
 // SectionDb is sub section of config.
 type SectionDb struct {
+	Name     string `yaml:"name"`
+	Addr     string `yaml:"addr"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
+}
+
+// SectionDb is sub section of config.
+type SectionDockerDb struct {
 	Name     string `yaml:"name"`
 	Addr     string `yaml:"addr"`
 	Username string `yaml:"username"`
@@ -185,6 +201,12 @@ func (c *Config) initConfig() (ConfYaml, error) {
 	confYaml.Db.Addr = viper.GetString("db.addr")
 	confYaml.Db.Username = viper.GetString("db.username")
 	confYaml.Db.Password = viper.GetString("db.password")
+
+	// DockerDb
+	confYaml.DockerDb.Name = viper.GetString("docker_db.name")
+	confYaml.DockerDb.Addr = viper.GetString("docker_db.addr")
+	confYaml.DockerDb.Username = viper.GetString("docker_db.username")
+	confYaml.DockerDb.Password = viper.GetString("docker_db.password")
 
 	return confYaml, nil
 }
