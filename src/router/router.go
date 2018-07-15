@@ -40,6 +40,11 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 		c.String(http.StatusNotFound, "不存在的接口地址.")
 	})
 
+	// User API
+	//u := g.Group("/v1/user") {
+	//	u.PUT("", user.Greate)
+	//}
+
 	// The health check handlers
 	svcd := g.Group("/sd")
 	{

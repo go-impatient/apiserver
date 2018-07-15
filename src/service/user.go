@@ -1,32 +1,127 @@
-package model
+package service
 
 import (
-	"github.com/moocss/apiserver/src/service"
-	"github.com/moocss/apiserver/src/schema"
+	"sync"
+	"github.com/moocss/apiserver/src/model"
+	"github.com/moocss/apiserver/src/pkg/auth"
+	validator "gopkg.in/go-playground/validator.v9"
 )
 
-type User struct {
-	db *service.Database
+// User service
+var User = &userService{
+	mutex: &sync.Mutex{},
 }
 
-func (m *User) TableName() string {
+type userService struct {
+	mutex *sync.Mutex
+}
+
+func (srv *userService) TableName() string {
 	return "tb_users"
 }
 
-func (m *User) Create(user *schema.UserModel) error {
-	return m.db.Self.Create(&user).Error
+const (
+	pageSize = 20
+)
+
+func (srv *userService) CreateUser(user *model.UserModel) error {
+	srv.mutex.Lock()
+	defer  srv.mutex.Unlock()
+
+	tx := DB.Self.Begin()
+	if err := tx.Create(&user).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+	tx.Commit()
+	return nil
 }
 
-func (m *User) DeleteUser(id uint64) error  {
-	user := schema.UserModel{}
+func (srv *userService) DeleteUser(id uint64) error  {
+	srv.mutex.Lock()
+	defer srv.mutex.Unlock()
+
+	user := model.UserModel{}
 	user.ID = id
-	return m.db.Self.Delete(&user).Error
+
+	tx := DB.Self.Begin()
+	if err := tx.Delete(&user).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+	tx.Commit()
+	return nil
 }
 
-func (m *User) Update(user *schema.UserModel) error  {
-	return m.db.Self.Save(user).Error
+func (srv *userService) UpdateUser(user *model.UserModel) error  {
+	srv.mutex.Lock()
+	defer  srv.mutex.Unlock()
+
+	tx := DB.Self.Begin()
+	if err := tx.Save(user).Error; err != nil {
+		tx.Rollback()
+
+		return  err
+	}
+	tx.Commit()
+
+	return nil
 }
 
-func (m *User) Find(id uint64) (*schema.UserModel, error)  {
+func (srv *userService) GetUser(id uint64) *model.UserModel  {
+	u := &model.UserModel{}
 
+	if err := DB.Self.First(&u, id).Error; err != nil {
+		return nil
+	}
+
+	return u
+}
+
+func (srv *userService) GetUserByName(username string) *model.UserModel  {
+	u := &model.UserModel{}
+	
+	if err := DB.Self.Where("`username` = ?", username).First(&u).Error; err != nil {
+		return nil
+	}
+	return u
+}
+
+func GetUserList(username string, page int) ([]*model.UserModel, uint64, error) {
+	offset := (page - 1) * pageSize
+	var count uint64
+
+	users := make([]*model.UserModel, 0)
+
+	if err := DB.Self.Model(&model.UserModel{}).
+		Select("`id`, `username`, `created_at`").
+		Where("`username` LIKE ?", username).
+		Order("`id` DESC").
+		Count(&count).
+		Offset(offset).
+		Limit(pageSize).
+		Find(&users).Error; err != nil {
+
+		return users, count, err
+	}
+
+	return users, count, nil
+}
+
+// Compare with the plain text password. Returns true if it's the same as the encrypted one (in the `User` struct).
+func (srv *userService) Compare(u *model.UserModel, pwd string) (err error) {
+	err = auth.Compare(u.Password, pwd)
+	return
+}
+
+// Encrypt the user password.
+func (srv *userService) Encrypt(u *model.UserModel) (err error) {
+	u.Password, err = auth.Encrypt(u.Password)
+	return
+}
+
+// Validate the fields.
+func (srv *userService) Validate(u *model.UserModel) error {
+	validate := validator.New()
+	return validate.Struct(u)
 }
