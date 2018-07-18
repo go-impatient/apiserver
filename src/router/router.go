@@ -2,6 +2,7 @@ package router
 
 import (
 	"github.com/moocss/apiserver/src/api/sd"
+	"github.com/moocss/apiserver/src/api/user"
 	"github.com/moocss/apiserver/src/pkg/version"
 	"github.com/moocss/apiserver/src/router/middleware"
 	"net/http"
@@ -41,9 +42,10 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	})
 
 	// User API
-	//u := g.Group("/v1/user") {
-	//	u.PUT("", user.Greate)
-	//}
+	u := g.Group("/v1/user")
+	{
+		u.POST("", user.Create)
+	}
 
 	// The health check handlers
 	svcd := g.Group("/sd")

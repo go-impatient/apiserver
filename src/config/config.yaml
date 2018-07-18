@@ -11,7 +11,7 @@ core:
     cert_path: "src/config/server.crt"
     key_path: "src/config/server.key"
   auto_tls:
-    enabled: false                # Automatically install TLS certificates from Let's Encrypt.
+    enabled: true                # Automatically install TLS certificates from Let's Encrypt.
     folder: ".cache"              # folder for storing TLS certificates
     host: ""                      # which domains the Let's Encrypt will attempt
 
