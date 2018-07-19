@@ -90,10 +90,10 @@ func Create(c *gin.Context) {
 		return
 	}
 	// Insert the user to the database.
-	if err := service.User.CreateUser(&u); err != nil {
-		util.SendResponse(c, errno.ErrDatabase, nil)
-		return
-	}
+	//if err := service.User.CreateUser(&u); err != nil {
+	//	util.SendResponse(c, errno.ErrDatabase, nil)
+	//	return
+	//}
 
 	rsp := CreateResponse{
 		Username: r.Username,

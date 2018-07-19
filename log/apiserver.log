@@ -1,0 +1,59 @@
+{"level":"INFO","timestamp":"2018-07-19 20:11:32.874","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:15:45.906","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:17:11.401","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:18:55.929","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:21:59.086","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:23:16.465","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 20:24:06.733","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"d0361db9-f7ce-4d9d-89f7-3dfd878823fc"}}
+{"level":"INFO","timestamp":"2018-07-19 20:24:45.323","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"fcbcfc60-752a-4257-be42-6922798da600"}}
+{"level":"INFO","timestamp":"2018-07-19 20:25:12.097","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"63eaf067-dd61-4e2a-bfc0-8baa1f53c3be"}}
+{"level":"INFO","timestamp":"2018-07-19 20:25:32.417","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"68853dc8-5e60-41bb-8670-6d9f3541af90"}}
+{"level":"INFO","timestamp":"2018-07-19 20:26:27.608","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"81017552-04f5-4a75-a33b-1d87356f5e63"}}
+{"level":"INFO","timestamp":"2018-07-19 20:26:50.798","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f17615d2-ac3c-4ec3-9170-22f9056a154a"}}
+{"level":"INFO","timestamp":"2018-07-19 20:27:27.095","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"13cac13f-386d-46b8-b0a8-4773ca275165"}}
+{"level":"INFO","timestamp":"2018-07-19 20:38:40.351","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"de98ef3e-2036-4447-becf-e8a82d959622"}}
+{"level":"INFO","timestamp":"2018-07-19 20:38:53.357","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"933dfa45-eb5b-4a28-97aa-628befdcc588"}}
+{"level":"INFO","timestamp":"2018-07-19 21:04:25.669","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 21:04:38.489","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"2feba7a8-9898-4431-a868-4536570f9f91"}}
+{"level":"INFO","timestamp":"2018-07-19 21:05:41.075","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"ecc4dbf2-a1cf-40d9-ab2b-bdde81f49c2c"}}
+{"level":"INFO","timestamp":"2018-07-19 21:06:45.629","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:09:16.869","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:09:35.416","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"ea6d8234-c0a6-4db5-bc57-358ad1e209cb"}}
+{"level":"INFO","timestamp":"2018-07-19 22:09:35.416","file":"user/user.go:77","msg":"URL username："}
+{"level":"INFO","timestamp":"2018-07-19 22:09:35.416","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:09:35.416","file":"user/user.go:83","msg":"Header Content-Type: application/x-www-form-urlencoded"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:09:35.417","file":"user/user.go:84","msg":"username is [], password is []"}
+{"level":"INFO","timestamp":"2018-07-19 22:13:08.695","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:13:40.184","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:14:34.393","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"131c5099-62ef-4f37-9c28-193f61599059"}}
+{"level":"INFO","timestamp":"2018-07-19 22:14:34.393","file":"user/user.go:77","msg":"URL username：fuxin"}
+{"level":"INFO","timestamp":"2018-07-19 22:14:34.393","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:14:34.393","file":"user/user.go:83","msg":"Header Content-Type: application/x-www-form-urlencoded"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:14:34.393","file":"user/user.go:84","msg":"username is [], password is []"}
+{"level":"INFO","timestamp":"2018-07-19 22:16:14.743","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"64678d68-e634-4107-be79-1ea86df24292"}}
+{"level":"INFO","timestamp":"2018-07-19 22:16:14.744","file":"user/user.go:77","msg":"URL username：fuxin"}
+{"level":"INFO","timestamp":"2018-07-19 22:16:14.744","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:16:14.744","file":"user/user.go:83","msg":"Header Content-Type: text/plain"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:16:14.744","file":"user/user.go:84","msg":"username is [], password is []"}
+{"level":"INFO","timestamp":"2018-07-19 22:17:00.024","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"600a5f85-3766-4b22-b86d-3031c4f9b8ed"}}
+{"level":"INFO","timestamp":"2018-07-19 22:17:00.024","file":"user/user.go:77","msg":"URL username：fuxin"}
+{"level":"INFO","timestamp":"2018-07-19 22:17:00.024","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:17:00.025","file":"user/user.go:83","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:17:00.025","file":"user/user.go:84","msg":"username is [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2018-07-19 22:17:46.514","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"67a3b3cb-b901-4894-962a-e66b16f3b82c"}}
+{"level":"INFO","timestamp":"2018-07-19 22:17:46.514","file":"user/user.go:77","msg":"URL username：fuxin"}
+{"level":"INFO","timestamp":"2018-07-19 22:17:46.514","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:17:46.514","file":"user/user.go:83","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:17:46.514","file":"user/user.go:84","msg":"username is [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2018-07-19 22:19:05.163","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:19:37.168","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"b0bc3ff9-e5f4-4eb9-8a4d-a27c17cc39fe"}}
+{"level":"INFO","timestamp":"2018-07-19 22:19:37.168","file":"user/user.go:77","msg":"URL username：fuxin"}
+{"level":"INFO","timestamp":"2018-07-19 22:19:37.168","file":"user/user.go:80","msg":"URL key param desc: \"dfdfds\""}
+{"level":"INFO","timestamp":"2018-07-19 22:19:37.169","file":"user/user.go:83","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2018-07-19 22:19:37.169","file":"user/user.go:84","msg":"username is [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2018-07-19 22:27:36.555","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:28:14.019","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"999309fe-7f95-48ac-953b-f4474836c981"}}
+{"level":"INFO","timestamp":"2018-07-19 22:30:34.879","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-19 22:30:42.713","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"736fd023-42a5-466c-adc2-484d98b31ba9"}}
+{"level":"INFO","timestamp":"2018-07-19 22:31:04.928","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"8e2f2d99-39ee-44b7-be75-35fc27e359f0"}}
+{"level":"INFO","timestamp":"2018-07-19 22:33:23.563","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f536f839-e98a-4234-981c-52f0ca6a44b0"}}

@@ -2,12 +2,12 @@ package router
 
 import (
 	"github.com/moocss/apiserver/src/api/sd"
-	"github.com/moocss/apiserver/src/api/user"
 	"github.com/moocss/apiserver/src/pkg/version"
 	"github.com/moocss/apiserver/src/router/middleware"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/moocss/apiserver/src/api/user"
 )
 
 func rootHandler(c *gin.Context) {
@@ -44,6 +44,7 @@ func Load(g *gin.Engine, mw ...gin.HandlerFunc) *gin.Engine {
 	// User API
 	u := g.Group("/v1/user")
 	{
+		// u.POST("", user.Create)
 		u.POST("", user.Create)
 	}
 

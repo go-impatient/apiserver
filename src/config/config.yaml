@@ -8,10 +8,10 @@ core:
   jwt_secret: "Rtg8BPKNEf2mB4mgvKONGPZZQSaJWNLijxR42qRgq0iBb5"
   tls:
     port: "9098"
-    cert_path: "src/config/server.crt"
-    key_path: "src/config/server.key"
+    cert_path: ""                 # src/config/server.crt
+    key_path: ""                  # src/config/server.key
   auto_tls:
-    enabled: true                # Automatically install TLS certificates from Let's Encrypt.
+    enabled: false                 # Automatically install TLS certificates from Let's Encrypt.
     folder: ".cache"              # folder for storing TLS certificates
     host: ""                      # which domains the Let's Encrypt will attempt
 
