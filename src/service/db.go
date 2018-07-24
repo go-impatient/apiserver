@@ -11,13 +11,14 @@ import (
 )
 
 
+
 type Database struct {
-	config config.ConfYaml
 	Self 		*gorm.DB
 	// Docker 	*gorm.DB
 }
 
 var DB *Database
+var Conf config.ConfYaml
 
 func openDB(username, password, addr, name string) *gorm.DB {
 	conf := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
@@ -50,7 +51,7 @@ func setupDB(db *gorm.DB) {
 
 // Init client storage.
 func (db *Database) InitSelfDB() *gorm.DB {
-	return openDB(db.config.Db.Username, db.config.Db.Password, db.config.Db.Addr, db.config.Db.Name)
+	return openDB(Conf.Db.Username, Conf.Db.Password, Conf.Db.Addr, Conf.Db.Name)
 }
 
 func (db *Database) GetSelfDB() *gorm.DB {
@@ -65,9 +66,8 @@ func (db *Database) GetSelfDB() *gorm.DB {
 //	return db.InitDockerDB()
 //}
 
-func (db *Database) Init(config config.ConfYaml) {
+func (db *Database) Init() {
 	DB = &Database{
-		config: config,
 		Self:  db.GetSelfDB(),
 		// Docker: db.GetDockerDB(),
 	}

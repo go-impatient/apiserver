@@ -13,6 +13,11 @@ type UserModel struct {
 	Password string `json:"password" gorm:"column:password;not null" binding:"required" validate:"min=5,max=128"`
 }
 
+
+func (u *UserModel) TableName() string {
+	return "tb_users"
+}
+
 // UserFrom parse JSON string and returns a User intance.
 func UserFrom(str string) (*UserModel, error) {
 	user := new(UserModel)

@@ -6,6 +6,7 @@ import (
 	logger "github.com/lexkong/log"
 	"github.com/moocss/apiserver/src"
 	"github.com/moocss/apiserver/src/config"
+	"github.com/moocss/apiserver/src/service"
 	v "github.com/moocss/apiserver/src/pkg/version"
 	"github.com/spf13/pflag"
 	"os"
@@ -80,6 +81,9 @@ func main() {
 		src.Conf.Core.Address = opts.Core.Address
 	}
 
+	// init db
+	service.DB.Init()
+
 	var g errgroup.Group
 	g.Go(func() error {
 		// 启动服务
@@ -93,8 +97,6 @@ func main() {
 	if err = g.Wait(); err != nil {
 		logger.Error("接口服务出错了：", err)
 	}
-
-	logger.Infof("Start to listening the incoming requests on http address: %s", src.Conf.Core.Port)
 }
 
 // usage will print out the flag options for the server.

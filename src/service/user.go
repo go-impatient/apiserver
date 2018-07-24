@@ -16,10 +16,6 @@ type userService struct {
 	mutex *sync.Mutex
 }
 
-func (srv *userService) TableName() string {
-	return "tb_users"
-}
-
 const (
 	pageSize = 20
 )

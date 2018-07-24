@@ -2,6 +2,7 @@ package src
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/moocss/apiserver/src/service"
 	"github.com/moocss/apiserver/src/router"
 	"github.com/moocss/apiserver/src/router/middleware"
 	"golang.org/x/crypto/acme/autocert"
@@ -10,16 +11,14 @@ import (
 	"crypto/tls"
 	"time"
 	"errors"
+	"os"
+	"os/signal"
+	"syscall"
 	"github.com/seccom/kpass/src/logger"
-	"github.com/moocss/apiserver/src/service"
 )
 
 // New returns a app instance
 func New() *gin.Engine {
-	// init db
-	Storage.Init(Conf)
-	defer service.DB.Close()
-
 	// Set gin mode.
 	gin.SetMode(Conf.Core.Mode)
 
@@ -51,6 +50,20 @@ func autoTLSServer() *http.Server {
 	}
 }
 
+func defaultTLSServer() *http.Server {
+	return &http.Server{
+		Addr: 			"0.0.0.0:" + Conf.Core.TLS.Port,
+		Handler:	  New(),
+	}
+}
+
+func defaultServer() *http.Server {
+	return &http.Server{
+		Addr: 			"0.0.0.0:" + Conf.Core.Port,
+		Handler:	  New(),
+	}
+}
+
 // RunHTTPServer provide run http or https protocol.
 func RunHTTPServer() (err error) {
 	if !Conf.Core.Enabled {
@@ -60,14 +73,41 @@ func RunHTTPServer() (err error) {
 
 	if Conf.Core.AutoTLS.Enabled {
 		s := autoTLSServer()
+		handleSignal(s)
+		log.Infof("1. Start to listening the incoming requests on https address")
 		err = s.ListenAndServeTLS("", "")
 	} else if Conf.Core.TLS.CertPath != "" && Conf.Core.TLS.KeyPath != "" {
-		err = http.ListenAndServeTLS(Conf.Core.Address+":"+Conf.Core.TLS.Port, Conf.Core.TLS.CertPath, Conf.Core.TLS.KeyPath, New())
+		s := defaultTLSServer()
+		handleSignal(s)
+		log.Infof("2. Start to listening the incoming requests on https address: %s", Conf.Core.TLS.Port)
+		err = s.ListenAndServeTLS(Conf.Core.TLS.CertPath, Conf.Core.TLS.KeyPath)
 	} else {
-		err = http.ListenAndServe(Conf.Core.Address+":"+Conf.Core.Port, New())
+		s := defaultServer()
+		handleSignal(s)
+		log.Infof("3. Start to listening the incoming requests on http address: %s", Conf.Core.Port)
+		err = s.ListenAndServe()
 	}
 
 	return
+}
+
+// handleSignal handles system signal for graceful shutdown.
+func handleSignal(server *http.Server) {
+	c := make(chan os.Signal)
+	signal.Notify(c, syscall.SIGINT, syscall.SIGQUIT, syscall.SIGTERM)
+
+	go func() {
+		s := <-c
+		log.Infof("got signal [%s], exiting apiserver now", s)
+		if err := server.Close(); nil != err {
+			log.Errorf(err, "server close failed ")
+		}
+
+		service.DB.Close()
+
+		log.Infof("apiserver exited")
+		os.Exit(0)
+	}()
 }
 
 // PingServer

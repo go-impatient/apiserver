@@ -57,3 +57,66 @@
 {"level":"INFO","timestamp":"2018-07-19 22:30:42.713","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"736fd023-42a5-466c-adc2-484d98b31ba9"}}
 {"level":"INFO","timestamp":"2018-07-19 22:31:04.928","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"8e2f2d99-39ee-44b7-be75-35fc27e359f0"}}
 {"level":"INFO","timestamp":"2018-07-19 22:33:23.563","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f536f839-e98a-4234-981c-52f0ca6a44b0"}}
+{"level":"INFO","timestamp":"2018-07-24 20:48:50.976","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 20:50:25.197","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"20e5073a-79b7-4fb1-9f20-481a5e47824b"}}
+{"level":"INFO","timestamp":"2018-07-24 20:59:54.628","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:00:29.058","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"b2c9381f-bf08-48bc-aa06-c37aa5fbf91f"}}
+{"level":"INFO","timestamp":"2018-07-24 21:01:59.011","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:02:10.109","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"c211b52a-af06-4819-8c34-7ab53f3b84a0"}}
+{"level":"INFO","timestamp":"2018-07-24 21:24:00.320","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:24:06.814","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"7cda523b-2199-4c4b-8fe1-48ae9a0f77cf"}}
+{"level":"INFO","timestamp":"2018-07-24 21:24:21.048","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f1952898-ea61-49e9-8570-629d029d3e85"}}
+{"level":"INFO","timestamp":"2018-07-24 21:25:10.998","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:26:24.036","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"9e966d76-6406-4b38-928f-a5fcb81adcf3"}}
+{"level":"INFO","timestamp":"2018-07-24 21:28:52.072","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:28:58.701","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"0042cfea-bcd6-4444-b6ac-61205e7c9558"}}
+{"level":"INFO","timestamp":"2018-07-24 21:30:57.848","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:31:07.914","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f2f09065-4ac4-4ccd-826c-9c9475d5610c"}}
+{"level":"INFO","timestamp":"2018-07-24 21:33:09.934","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"c33057d0-92e6-49df-8eb1-049e239ab43b"}}
+{"level":"INFO","timestamp":"2018-07-24 21:33:36.007","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"d63b4340-3f74-4519-b47b-2a570bc45ef7"}}
+{"level":"INFO","timestamp":"2018-07-24 21:34:53.112","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 21:35:06.967","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"13f79515-2c50-4485-8e0b-ed76b6901673"}}
+{"level":"INFO","timestamp":"2018-07-24 22:56:28.539","file":"service/db.go:35","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:02:05.735","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:06:35.739","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:06:41.142","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"8bc3ce06-6fa1-48dc-a678-764c026d1c6e"}}
+{"level":"INFO","timestamp":"2018-07-24 23:10:08.760","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:10:19.401","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"0c096937-4bda-4e12-8a00-55b4ab227942"}}
+{"level":"INFO","timestamp":"2018-07-24 23:19:40.162","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:19:47.563","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"3f417fde-7b9e-44d2-af00-fb0a0ede1adc"}}
+{"level":"INFO","timestamp":"2018-07-24 23:21:37.085","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"34a7000f-e856-41e1-b543-0a32d8c51110"}}
+{"level":"INFO","timestamp":"2018-07-24 23:25:46.078","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"42be2def-3917-4f1f-bfc3-9e9b7fe18e94"}}
+{"level":"INFO","timestamp":"2018-07-24 23:26:37.474","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"ca64cef9-2dbb-446e-a560-6e3ce8b068e3"}}
+{"level":"INFO","timestamp":"2018-07-24 23:30:19.480","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:31:29.384","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"c9e7f88c-3a68-4493-bed7-75d6b25c5642"}}
+{"level":"INFO","timestamp":"2018-07-24 23:36:17.440","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:36:38.070","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"3910f081-fa56-4437-965e-11056169ca06"}}
+{"level":"INFO","timestamp":"2018-07-24 23:39:09.890","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:39:31.220","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"778e1b9c-85bc-4f1b-9872-842cab8e9b44"}}
+{"level":"INFO","timestamp":"2018-07-24 23:40:12.945","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-24 23:40:19.688","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"a7182131-a573-4b75-adac-7863c68dfb7a"}}
+{"level":"INFO","timestamp":"2018-07-25 00:23:33.240","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:23:33.243","file":"server.go:77","msg":"Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:26:16.622","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:26:16.622","file":"server.go:80","msg":"Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:26:37.791","file":"server.go:94","msg":"got signal [interrupt], exiting pipe now"}
+{"level":"INFO","timestamp":"2018-07-25 00:26:37.792","file":"server.go:101","msg":"Pipe exited"}
+{"level":"INFO","timestamp":"2018-07-25 00:27:42.985","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:27:42.986","file":"server.go:80","msg":"Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:29:52.785","file":"server.go:94","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 00:29:52.785","file":"server.go:101","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 00:29:52.785","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"Cannot connect to the router."}}
+{"level":"INFO","timestamp":"2018-07-25 00:30:20.488","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:33:09.572","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:33:09.573","file":"server.go:80","msg":"Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:34:10.101","file":"server.go:94","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 00:34:10.102","file":"server.go:101","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 00:34:22.942","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:34:22.943","file":"server.go:80","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:39:28.673","file":"server.go:94","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 00:39:28.673","file":"server.go:101","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 00:43:02.626","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 00:43:02.627","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 00:43:13.350","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"9a9e8098-20eb-4664-bda9-63d41a9177e6"}}
+{"level":"INFO","timestamp":"2018-07-25 00:43:32.089","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 00:43:32.089","file":"server.go:108","msg":"apiserver exited"}
