@@ -7,7 +7,6 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	"github.com/lexkong/log"
-	"github.com/moocss/apiserver/src/config"
 )
 
 
@@ -17,8 +16,15 @@ type Database struct {
 	// Docker 	*gorm.DB
 }
 
+type confing struct {
+	Name     string
+	Addr     string
+	Username string
+	Password string
+}
+
 var DB *Database
-var Conf config.ConfYaml
+var conf * confing
 
 func openDB(username, password, addr, name string) *gorm.DB {
 	conf := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
@@ -27,15 +33,14 @@ func openDB(username, password, addr, name string) *gorm.DB {
 		addr,
 		name,
 		true,
-		//"Asia/Shanghai"),
 		"Local")
 
 	db, err := gorm.Open("mysql", conf)
 	if err != nil {
-		log.Errorf(err, "Database connection failed.")
+		log.Errorf(err, "Database connection failed. Database name: %s", name)
+	} else {
+		log.Infof("Database connection succeed. Database name: %s", name)
 	}
-
-	log.Infof("Database connection succeed.")
 
 	// set for db connection
 	setupDB(db)
@@ -45,31 +50,37 @@ func openDB(username, password, addr, name string) *gorm.DB {
 
 func setupDB(db *gorm.DB) {
 	db.LogMode(true)
-	//db.DB().SetMaxOpenConns(20000) // 用于设置最大打开的连接数，默认值为0表示不限制.设置最大的连接数，可以避免并发太高导致连接mysql出现too many connections的错误。
-	db.DB().SetMaxIdleConns(0) // 用于设置闲置的连接数.设置闲置的连接数则当开启的一个连接使用完成后可以放在池里等候下一次使用。
+	db.DB().SetMaxOpenConns(50) // 用于设置最大打开的连接数，默认值为0表示不限制.设置最大的连接数，可以避免并发太高导致连接mysql出现too many connections的错误。
+	db.DB().SetMaxIdleConns(10) // 用于设置闲置的连接数.设置闲置的连接数则当开启的一个连接使用完成后可以放在池里等候下一次使用。
 }
 
 // Init client storage.
-func (db *Database) InitSelfDB() *gorm.DB {
-	return openDB(Conf.Db.Username, Conf.Db.Password, Conf.Db.Addr, Conf.Db.Name)
+func InitSelfDB() *gorm.DB {
+	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
 }
 
-func (db *Database) GetSelfDB() *gorm.DB {
-	return db.InitSelfDB()
+func GetSelfDB() *gorm.DB {
+	return InitSelfDB()
 }
 
-//func (db *Database) InitDockerDB() *gorm.DB {
-//	return openDB(db.config.DockerDb.Username, db.config.DockerDb.Password, db.config.DockerDb.Addr, db.config.DockerDb.Name)
+//func InitDockerDB() *gorm.DB {
+//	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
 //}
 //
-//func (db *Database) GetDockerDB() *gorm.DB {
-//	return db.InitDockerDB()
+//func GetDockerDB() *gorm.DB {
+//	return InitDockerDB()
 //}
 
-func (db *Database) Init() {
+func (db *Database) Init(username, password, addr, name string) {
+	conf = &confing{
+		Username: username,
+		Password: password,
+		Addr: addr,
+		Name: name,
+	}
 	DB = &Database{
-		Self:  db.GetSelfDB(),
-		// Docker: db.GetDockerDB(),
+		Self:  GetSelfDB(),
+		// Docker: GetDockerDB(),
 	}
 }
 

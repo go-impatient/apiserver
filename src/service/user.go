@@ -76,7 +76,7 @@ func (srv *userService) GetUser(id uint64) *model.UserModel  {
 
 func (srv *userService) GetUserByName(username string) *model.UserModel  {
 	u := &model.UserModel{}
-	
+
 	if err := DB.Self.Where("`username` = ?", username).First(&u).Error; err != nil {
 		return nil
 	}

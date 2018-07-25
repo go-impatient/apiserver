@@ -120,3 +120,152 @@
 {"level":"INFO","timestamp":"2018-07-25 00:43:13.350","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"9a9e8098-20eb-4664-bda9-63d41a9177e6"}}
 {"level":"INFO","timestamp":"2018-07-25 00:43:32.089","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
 {"level":"INFO","timestamp":"2018-07-25 00:43:32.089","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 20:09:34.705","file":"service/db.go:35","msg":"Database connection failed.","data":{"error":"dial tcp 127.0.0.1:3306: connect: connection refused"}}
+{"level":"INFO","timestamp":"2018-07-25 20:09:34.707","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:09:34.709","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:11:53.616","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 20:11:53.616","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 20:11:53.616","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"ERROR","timestamp":"2018-07-25 20:12:06.722","file":"service/db.go:35","msg":"Database connection failed.","data":{"error":"dial tcp 127.0.0.1:3306: connect: connection refused"}}
+{"level":"INFO","timestamp":"2018-07-25 20:12:06.723","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:12:29.594","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 20:12:29.595","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 20:14:59.376","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:14:59.382","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:17:12.842","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"9c255635-4e34-4fb1-9857-73d73836ebe8"}}
+{"level":"INFO","timestamp":"2018-07-25 20:26:30.182","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"42a5a3b2-e8fc-43a7-abed-fd8fe4331a2f"}}
+{"level":"INFO","timestamp":"2018-07-25 20:26:42.321","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 20:26:42.321","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 20:26:42.321","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 20:27:21.112","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:27:21.116","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:29:33.476","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"ERROR","timestamp":"2018-07-25 20:29:33.476","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 20:29:33.476","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 20:29:46.654","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:29:46.655","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:30:34.521","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"d25f8dde-540a-4ec1-a3f6-cafaf1c982bf"}}
+{"level":"INFO","timestamp":"2018-07-25 20:41:54.049","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:41:54.059","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:42:19.286","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"f52713c2-a115-426d-8b26-47a3a43caf8e"}}
+{"level":"INFO","timestamp":"2018-07-25 20:52:52.341","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 20:52:52.341","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 20:52:52.341","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 20:53:11.211","file":"service/db.go:37","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-25 20:53:11.219","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 20:53:37.244","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"6c1fd00a-ca26-4143-9cbc-e277bee5b0db"}}
+{"level":"INFO","timestamp":"2018-07-25 21:08:23.619","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 21:08:23.620","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 21:08:23.620","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 21:08:38.907","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:08:38.908","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 21:09:17.051","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"3b091250-cb86-4abb-bcaa-bc7e221a9f9b"}}
+{"level":"INFO","timestamp":"2018-07-25 21:13:15.362","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 21:13:15.362","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 21:13:26.485","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:13:26.486","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 21:13:51.644","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"d8f0dab1-c598-48c9-87dd-049b5ee9a942"}}
+{"level":"INFO","timestamp":"2018-07-25 21:28:04.295","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 21:28:04.295","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 21:28:17.554","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:28:17.554","file":"apiserver/main.go:113","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 21:28:29.694","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"fbe3d497-e390-46a7-ba6c-0487ea773e60"}}
+{"level":"INFO","timestamp":"2018-07-25 21:32:07.694","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:32:53.536","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"d854a9ea-ec75-4ab4-ab95-69aabaa90630"}}
+{"level":"INFO","timestamp":"2018-07-25 21:33:26.782","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"6978e900-4a2f-484a-b729-389e96ffc1fa"}}
+{"level":"INFO","timestamp":"2018-07-25 21:39:43.079","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:39:43.083","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 21:41:41.884","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"8f99b206-ecf6-4a60-8036-1b84ab0ce602"}}
+{"level":"INFO","timestamp":"2018-07-25 21:42:06.000","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"aab3b143-d27e-4388-9f93-4c2de69f8a7e"}}
+{"level":"INFO","timestamp":"2018-07-25 21:48:04.220","file":"user/user.go:69","msg":"User Create function called.","data":{"X-Request-Id":"fc0ee421-82f6-4f33-bc1d-e7e6a4bdfc9e"}}
+{"level":"INFO","timestamp":"2018-07-25 21:55:53.541","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 21:55:53.541","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 21:55:53.541","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 21:56:07.009","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 21:56:07.011","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:04:41.244","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:04:41.245","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 22:04:41.245","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:08:02.789","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:08:02.790","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:12:02.340","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:12:02.340","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 22:12:31.975","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:12:31.978","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:13:57.518","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:13:57.519","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 22:13:57.519","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:14:09.058","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:14:09.060","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:17:59.857","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"ERROR","timestamp":"2018-07-25 22:17:59.858","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:17:59.858","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 22:18:20.956","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:18:20.965","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:22:30.989","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"ERROR","timestamp":"2018-07-25 22:22:30.990","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:22:30.990","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 22:22:41.201","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:22:41.204","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:23:07.891","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:23:07.891","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 22:23:19.261","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:23:19.261","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:30:10.774","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:30:10.775","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 22:30:10.775","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:30:20.668","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:30:20.669","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:53:46.121","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:53:46.122","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 22:53:46.122","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 22:54:02.595","file":"service/db.go:36","msg":"Database connection succeed. Database name: "}
+{"level":"INFO","timestamp":"2018-07-25 22:54:02.596","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 22:55:29.139","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 22:55:29.139","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 23:11:04.028","file":"log/logrotate.go:227","msg":"LogRotate catch an exception"}
+{"level":"INFO","timestamp":"2018-07-25 23:11:24.363","file":"service/db.go:35","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-25 23:11:24.364","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 23:13:10.067","file":"user/user.go:70","msg":"User Create function called.","data":{"X-Request-Id":"917600a6-de33-4dbc-85ef-5a59e2eefc04"}}
+{"level":"INFO","timestamp":"2018-07-25 23:19:08.430","file":"user/user.go:70","msg":"User Create function called.","data":{"X-Request-Id":"9fac6c17-6aa0-4c7c-a037-8029604d658f"}}
+{"level":"INFO","timestamp":"2018-07-25 23:26:43.921","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"ERROR","timestamp":"2018-07-25 23:26:43.922","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-25 23:26:43.922","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 23:27:12.009","file":"service/db.go:35","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-25 23:27:12.009","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 23:27:15.704","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 23:27:15.704","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 23:45:19.674","file":"service/db.go:40","msg":"Database connection failed. Database name: 127.0.0.1:3306","data":{"error":"dial tcp: lookup db_apiserver: no such host"}}
+{"level":"INFO","timestamp":"2018-07-25 23:45:19.680","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 23:47:32.531","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 23:47:32.531","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-25 23:47:32.531","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"ERROR","timestamp":"2018-07-25 23:47:46.481","file":"service/db.go:40","msg":"Database connection failed. Database name: 127.0.0.1:3306","data":{"error":"dial tcp: lookup db_apiserver: no such host"}}
+{"level":"INFO","timestamp":"2018-07-25 23:47:46.485","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 23:50:27.946","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 23:50:27.946","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 23:52:22.569","file":"service/db.go:42","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-25 23:52:22.571","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-25 23:53:16.407","file":"user/user.go:70","msg":"User Create function called.","data":{"X-Request-Id":"a4998e40-eac5-49b6-a2db-6686f7e7696f"}}
+{"level":"INFO","timestamp":"2018-07-25 23:59:21.926","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-25 23:59:21.930","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-25 23:59:34.875","file":"service/db.go:42","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-25 23:59:34.877","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-26 00:04:19.775","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-26 00:04:19.776","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-26 00:04:19.776","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-26 00:04:30.615","file":"service/db.go:42","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-26 00:04:30.616","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-26 00:07:09.534","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-26 00:07:09.534","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-26 00:07:09.534","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-26 00:07:21.022","file":"service/db.go:42","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-26 00:07:21.024","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-26 00:11:16.200","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-26 00:11:16.201","file":"server.go:108","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-26 00:11:16.201","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-26 00:11:27.990","file":"service/db.go:42","msg":"Database connection succeed. Database name: db_apiserver"}
+{"level":"INFO","timestamp":"2018-07-26 00:11:27.993","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"ERROR","timestamp":"2018-07-26 00:12:14.063","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
+{"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:108","msg":"apiserver exited"}

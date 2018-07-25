@@ -48,12 +48,14 @@ func Get(c *gin.Context) {
 	username := c.Param("username")
 	// Get the user by the `username` from the database.
 	user :=  service.User.GetUserByName(username)
+
 	if user != nil {
-		util.SendResponse(c, errno.ErrUserNotFound, nil)
+		util.SendResponse(c, nil, user)
 		return
 	}
 
-	util.SendResponse(c, nil, user)
+	util.SendResponse(c, errno.ErrUserNotFound, nil)
+
 }
 
 

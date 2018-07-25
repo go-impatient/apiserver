@@ -6,7 +6,7 @@ import (
 
 var (
 	// 版本
-	Version = "v0.0.3"
+	Version = "v0.0.8"
 
 	// 配置参数
 	Conf config.ConfYaml
