@@ -16,7 +16,7 @@ type Database struct {
 	// Docker 	*gorm.DB
 }
 
-type confing struct {
+type dbConfig struct {
 	Name     string
 	Addr     string
 	Username string
@@ -24,7 +24,7 @@ type confing struct {
 }
 
 var DB *Database
-var conf * confing
+var conf * dbConfig
 
 func openDB(username, password, addr, name string) *gorm.DB {
 	conf := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
@@ -72,7 +72,7 @@ func GetSelfDB() *gorm.DB {
 //}
 
 func (db *Database) Init(username, password, addr, name string) {
-	conf = &confing{
+	conf = &dbConfig{
 		Username: username,
 		Password: password,
 		Addr: addr,
