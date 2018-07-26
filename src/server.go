@@ -14,7 +14,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"github.com/seccom/kpass/src/logger"
 )
 
 // New returns a app instance
@@ -121,7 +120,7 @@ func PingServer() (err error) {
 		}
 
 		// Sleep for a second to continue the next ping.
-		logger.Info("Waiting for the router, retry in 1 second.")
+		log.Info("Waiting for the router, retry in 1 second.")
 		time.Sleep(time.Second)
 	}
 	err = errors.New("Cannot connect to the router.")
