@@ -54,12 +54,12 @@ func GetSelfDB(connStr string) *gorm.DB {
 	return InitSelfDB(connStr)
 }
 
-//func InitDockerDB() *gorm.DB {
-//	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
+//func InitDockerDB(connStr string) *gorm.DB {
+//	return openDB(connStr)
 //}
 //
-//func GetDockerDB() *gorm.DB {
-//	return InitDockerDB()
+//func GetDockerDB(connStr string) *gorm.DB {
+//	return InitDockerDB(connStr)
 //}
 
 func (db *Database) Init(dbname, username, password, addr string) {
