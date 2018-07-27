@@ -269,3 +269,8 @@
 {"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
 {"level":"ERROR","timestamp":"2018-07-26 00:12:14.063","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
 {"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-27 23:13:11.637","file":"service/db.go:38","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-27 23:13:11.639","file":"server.go:86","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-27 23:14:02.003","file":"server.go:100","msg":"got signal [interrupt], exiting apiserver now"}
+{"level":"INFO","timestamp":"2018-07-27 23:14:02.003","file":"server.go:107","msg":"apiserver exited"}
+{"level":"ERROR","timestamp":"2018-07-27 23:14:02.003","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}

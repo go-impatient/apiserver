@@ -7,6 +7,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	"github.com/lexkong/log"
+	"github.com/spf13/viper"
 )
 
 
@@ -16,30 +17,25 @@ type Database struct {
 	// Docker 	*gorm.DB
 }
 
-type dbConfig struct {
-	Name     string
-	Addr     string
-	Username string
-	Password string
-}
-
 var DB *Database
-var conf * dbConfig
 
-func openDB(username, password, addr, name string) *gorm.DB {
+func realDSN(dbname, username, password, addr string) string {
 	conf := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
 		username,
 		password,
 		addr,
-		name,
+		dbname,
 		true,
 		"Local")
+	return conf
+}
 
-	db, err := gorm.Open("mysql", conf)
+func openDB(connStr string) *gorm.DB {
+	db, err := gorm.Open("mysql", connStr)
 	if err != nil {
-		log.Errorf(err, "Database connection failed. Database name: %s", name)
+		log.Errorf(err, "Database connection failed.")
 	} else {
-		log.Infof("Database connection succeed. Database name: %s", name)
+		log.Infof("Database connection succeed.")
 	}
 
 	// set for db connection
@@ -56,7 +52,12 @@ func setupDB(db *gorm.DB) {
 
 // Init client storage.
 func InitSelfDB() *gorm.DB {
-	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
+	return openDB(realDSN(
+		viper.GetString("db.name"),
+		viper.GetString("db.username"),
+		viper.GetString("db.password"),
+		viper.GetString("db.addr"),
+	))
 }
 
 func GetSelfDB() *gorm.DB {
@@ -64,20 +65,19 @@ func GetSelfDB() *gorm.DB {
 }
 
 //func InitDockerDB() *gorm.DB {
-//	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
+//	return openDB(realDSN(
+//		viper.GetString("docker_db.name"),
+//		viper.GetString("docker_db.username"),
+//		viper.GetString("docker_db.password"),
+//		viper.GetString("docker_db.addr"),
+//	))
 //}
 //
 //func GetDockerDB() *gorm.DB {
 //	return InitDockerDB()
 //}
 
-func (db *Database) Init(username, password, addr, name string) {
-	conf = &dbConfig{
-		Username: username,
-		Password: password,
-		Addr: addr,
-		Name: name,
-	}
+func (db *Database) Init() {
 	DB = &Database{
 		Self:  GetSelfDB(),
 		// Docker: GetDockerDB(),

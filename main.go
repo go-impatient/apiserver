@@ -82,7 +82,7 @@ func main() {
 	}
 
 	// init db
-	service.DB.Init(src.Conf.Db.Username, src.Conf.Db.Password, src.Conf.Db.Addr, src.Conf.Db.Name )
+	service.DB.Init()
 
 	var g errgroup.Group
 	g.Go(func() error {
