@@ -41,13 +41,13 @@ db:
   name: "db_apiserver"
   addr: "127.0.0.1:3306"
   username: "root"
-  password: "123456"
+  password: ""
 
 docker_db:
   name: "db_apiserver"
   addr: "127.0.0.1:3306"
   username: "root"
-  password: "123456"
+  password: ""
 `)
 
 type Config struct {

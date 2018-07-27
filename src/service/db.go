@@ -1,51 +1,42 @@
 package service
 
 import (
-	"fmt"
-	// MySQL driver.
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
-
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/lexkong/log"
+	"fmt"
 )
-
-
 
 type Database struct {
 	Self 		*gorm.DB
 	// Docker 	*gorm.DB
 }
 
-type confing struct {
-	Name     string
-	Addr     string
-	Username string
-	Password string
-}
-
 var DB *Database
-var conf * confing
 
-func openDB(username, password, addr, name string) *gorm.DB {
+func realDSN(dbname, username, password, addr string) string {
 	conf := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=%t&loc=%s",
 		username,
 		password,
 		addr,
-		name,
+		dbname,
 		true,
 		"Local")
+	return conf
+}
 
-	db, err := gorm.Open("mysql", conf)
+func openDB(connStr string) *gorm.DB {
+	m, err := gorm.Open("mysql", connStr)
 	if err != nil {
-		log.Errorf(err, "Database connection failed. Database name: %s", name)
+		log.Errorf(err, "Database connection failed.")
 	} else {
-		log.Infof("Database connection succeed. Database name: %s", name)
+		log.Infof("Database connection succeed.")
 	}
 
 	// set for db connection
-	setupDB(db)
+	setupDB(m)
 
-	return db
+	return m
 }
 
 func setupDB(db *gorm.DB) {
@@ -55,12 +46,12 @@ func setupDB(db *gorm.DB) {
 }
 
 // Init client storage.
-func InitSelfDB() *gorm.DB {
-	return openDB(conf.Username, conf.Password, conf.Addr, conf.Name)
+func InitSelfDB(connStr string) *gorm.DB {
+	return openDB(connStr)
 }
 
-func GetSelfDB() *gorm.DB {
-	return InitSelfDB()
+func GetSelfDB(connStr string) *gorm.DB {
+	return InitSelfDB(connStr)
 }
 
 //func InitDockerDB() *gorm.DB {
@@ -71,15 +62,9 @@ func GetSelfDB() *gorm.DB {
 //	return InitDockerDB()
 //}
 
-func (db *Database) Init(username, password, addr, name string) {
-	conf = &confing{
-		Username: username,
-		Password: password,
-		Addr: addr,
-		Name: name,
-	}
+func (db *Database) Init(dbname, username, password, addr string) {
 	DB = &Database{
-		Self:  GetSelfDB(),
+		Self: GetSelfDB(realDSN(dbname, username, password, addr)),
 		// Docker: GetDockerDB(),
 	}
 }

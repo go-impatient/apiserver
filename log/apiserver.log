@@ -269,3 +269,13 @@
 {"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:101","msg":"got signal [interrupt], exiting apiserver now"}
 {"level":"ERROR","timestamp":"2018-07-26 00:12:14.063","file":"apiserver/main.go:98","msg":"接口服务出错了：","data":{"error":"http: Server closed"}}
 {"level":"INFO","timestamp":"2018-07-26 00:12:14.063","file":"server.go:108","msg":"apiserver exited"}
+{"level":"INFO","timestamp":"2018-07-27 17:20:17.229","file":"service/db.go:45","msg":"Database connection succeed. Database name: 127.0.0.1:3306"}
+{"level":"INFO","timestamp":"2018-07-27 18:20:26.478","file":"service/db.go:41","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-27 18:20:26.479","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-27 18:29:39.459","file":"service/db.go:33","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-27 18:29:39.460","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"INFO","timestamp":"2018-07-27 18:32:30.650","file":"service/db.go:33","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-27 18:32:30.651","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
+{"level":"ERROR","timestamp":"2018-07-27 18:32:51.632","file":"service/db.go:30","msg":"Database connection failed.","data":{"error":"sql: unknown driver \"mysql\" (forgotten import?)"}}
+{"level":"INFO","timestamp":"2018-07-27 18:33:25.309","file":"service/db.go:33","msg":"Database connection succeed."}
+{"level":"INFO","timestamp":"2018-07-27 18:33:25.309","file":"server.go:87","msg":"3. Start to listening the incoming requests on http address: 9090"}
