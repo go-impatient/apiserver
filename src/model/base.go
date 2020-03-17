@@ -1,9 +1,18 @@
 package model
 
 import (
-	"time"
 	"encoding/json"
+	"time"
+
+	"github.com/moocss/apiserver/src/util"
 )
+
+type Model struct {
+	ID        uint `gorm:"primary_key"`
+	CreatedAt util.JSONTime
+	UpdatedAt util.JSONTime
+	DeletedAt *util.JSONTime `sql:"index"`
+}
 
 type BaseModel struct {
 	ID        uint64     `gorm:"primary_key;AUTO_INCREMENT;column:id" json:"-"`
